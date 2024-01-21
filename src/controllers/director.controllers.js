@@ -1,6 +1,5 @@
 const catchError = require('../utils/catchError');
 const Director = require('../models/Director');
-const Movie = require('../models/Movie');
 
 const getAll = catchError(async(req, res) => {
     const results = await Director.findAll();
@@ -27,7 +26,7 @@ const remove = catchError(async(req, res) => {
 
 const update = catchError(async(req, res) => {
     const { id } = req.params;
-    const result = awDirector.update(
+    const result = await Director.update(
         req.body,
         { where: {id}, returning: true }
     );
